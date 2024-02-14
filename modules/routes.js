@@ -33,7 +33,21 @@ const routeRequest = async (req, res) => {
     // Handle the favicon.ico request which is expected from browsers
     case "/favicon.ico":
       if (DEBUG) console.log("Route: favicon");
-      sendStaticFile(res, "./resources/favicon.ico", 200, "image/x-icon");
+      // Headers for this response indicate that the file can be cached for 30 minutes
+      // (The brower will not request another copy of the file until its local copy is at least 30 minutes old)
+      sendStaticFile(res, "./resources/favicon.ico", 200, {
+        "Content-Type": "image/x-icon",
+        "Cache-Control": "max-age=1800",
+      });
+      break;
+
+    // Route for the stylesheet used by the html files
+    case "/styles.css":
+      if (DEBUG) console.log("Route: styles");
+      sendStaticFile(res, "./resources/styles.css", 200, {
+        "Content-Type": "text/css",
+        "Cache-Control": "max-age=1800",
+      });
       break;
 
     default:
