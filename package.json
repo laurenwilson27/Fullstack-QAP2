@@ -8,5 +8,9 @@
     "start": "node server.js"
   },
   "author": "Lauren Wilson",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "luxon": "^3.4.4",
+    "uuid": "^9.0.1"
+  }
 }

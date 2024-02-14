@@ -1,4 +1,5 @@
 const { sendStaticFile } = require("./files");
+const myEmitter = require("./logEvents");
 
 // Function to route incoming HTTP requests to the appropriate function
 const routeRequest = async (req, res) => {
@@ -37,6 +38,7 @@ const routeRequest = async (req, res) => {
 
     default:
       if (DEBUG) console.log("Route: unknown (404)");
+      myEmitter.emit("error", "Unknown route was requested: " + req.url);
       sendStaticFile(res, "./views/404.html", 404);
   }
 };
