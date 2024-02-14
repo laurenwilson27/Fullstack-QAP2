@@ -10,7 +10,7 @@ const { v4: uuidv4 } = require("uuid");
 
 const myEmitter = new MyEmitter();
 
-myEmitter.on("ok", (msg) => {
+myEmitter.on("ok", async (msg) => {
   // Create a string consisting of a uuid, timestamp, the event type, and the event message
   let text =
     uuidv4() +
@@ -22,7 +22,7 @@ myEmitter.on("ok", (msg) => {
   if (EVENT_CONSOLE) console.log(text);
 });
 
-myEmitter.on("error", (msg) => {
+myEmitter.on("error", async (msg) => {
   // Create a string consisting of a uuid, timestamp, the event type, and the event message
   let text =
     uuidv4() +
