@@ -5,7 +5,7 @@ body {
     rgba(147, 102, 166, 1) 100%
   );
 
-  color: rgb(57, 12, 76);
+  color: rgb(77, 32, 96);
 }
 
 nav {
@@ -18,16 +18,24 @@ nav {
 }
 
 nav a {
-  margin: 12px auto;
+  display: inline-block;
+  margin: auto 12px;
+}
 
+a {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
 
   color: rgb(147, 102, 166);
 }
 
-nav a:hover {
+a:hover {
   color: rgb(107, 62, 126);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgb(57, 12, 76);
 }
 
 .panel {

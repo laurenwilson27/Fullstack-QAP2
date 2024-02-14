@@ -1,4 +1,5 @@
 const { sendStaticFile } = require("./files");
+const { getHeadlines } = require("./news");
 const myEmitter = require("./logEvents");
 
 // Function to route incoming HTTP requests to the appropriate function
@@ -47,6 +48,26 @@ const routeRequest = async (req, res) => {
       sendStaticFile(res, "./resources/styles.css", 200, {
         "Content-Type": "text/css",
         "Cache-Control": "max-age=1800",
+      });
+      break;
+
+    case "/news":
+      if (DEBUG) console.log("Route: news page");
+      sendStaticFile(res, "./views/news.html");
+      break;
+
+    case "/news_data":
+      if (DEBUG) console.log("Route: news data");
+      getHeadlines().then((headlines) => {
+        res.writeHead(200, { "Content-Type": "text/json" });
+        res.end(JSON.stringify(headlines));
+      });
+      break;
+
+    case "/ca_news.js":
+      if (DEBUG) console.log("Route: Browser news.js");
+      sendStaticFile(res, "./resources/ca_news.js", 200, {
+        "Content-Type": "text/javascript",
       });
       break;
 
