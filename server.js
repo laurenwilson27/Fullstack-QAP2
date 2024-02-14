@@ -9,6 +9,9 @@ global.DEBUG = false;
 // Global switch for writing events to the console
 global.EVENT_CONSOLE = true;
 
+// Global switch for writing events to a log file
+global.EVENT_LOG = true;
+
 // Create a server. Incoming HTTP requests are routed by routing.js
 const server = http.createServer((req, res) => routeRequest(req, res));
 
