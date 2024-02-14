@@ -3,8 +3,11 @@ const { routeRequest } = require("./modules/routes");
 
 const PORT = 4000;
 
-// Global switch for extra logging
-global.DEBUG = true;
+// Global switch for extra logging (used by routes.js)
+global.DEBUG = false;
+
+// Global switch for writing events to the console
+global.EVENT_CONSOLE = true;
 
 // Create a server. Incoming HTTP requests are routed by routing.js
 const server = http.createServer((req, res) => routeRequest(req, res));
