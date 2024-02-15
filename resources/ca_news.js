@@ -1,8 +1,6 @@
 // This was a bit overkill, but it was good practise.
 // On page load, this browser JS code queries the server's /news_data route, which responds with JSON from the API
 
-const MAX_ARTICLES = 10;
-
 document.addEventListener("DOMContentLoaded", async () => {
   let headlines;
   await fetch("/news_data").then(async (data) => {
